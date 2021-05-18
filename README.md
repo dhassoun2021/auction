@@ -1,23 +1,23 @@
 # Auction
 
-##Prerequisite
+## Prerequisite
 To use application, use JDK 11
 
-##Build application
+## Build application
 On root directory, launch mvn clean package
 
 Launch java -jar target/auction-1.0-SNAPSHOT.jar server auction.yaml
-##API
-###Create Auction House
+## API
+### Create Auction House
 POST http://localhost:9000/api/b2b/auctions-house
 
 Example of payload:
 
 {"name":"auction-house"}
 
-###Get all Auction House
+### Get all Auction House
 GET http://localhost:9000/api/b2b/auctions-house
-###Create auction
+### Create auction
 POST http://localhost:9000/api/b2b/auctions-house/{idAuctionHouse}/auctions
 
 Example of payload:
@@ -25,9 +25,9 @@ Example of payload:
 "startingTime":"2021-05-16 17:51",
 "endingTime": "2021-05-16 18:50",
 "price":"30.0"}
-###GET all auctions of auction house
+### GET all auctions of auction house
 GET http://localhost:9000/api/b2b/auctions-house/{idAuctionHouse}/auctions
-###Bid auction
+### Bid auction
 PUT http://localhost:9000/api/b2b/auctions-house/{idAuctionHouse}/auctions/{idAuction}
 
 Example of payload:
