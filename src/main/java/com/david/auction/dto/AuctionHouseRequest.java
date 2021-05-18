@@ -3,13 +3,12 @@ package com.david.auction.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class AuctionHouseRequest {
 
     @NotEmpty
-    @Size(min = 3)
+    @Size(min = 3, max=255)
     private final String name;
 
 

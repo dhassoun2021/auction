@@ -105,5 +105,28 @@ public class AuctionsHandler {
         return Response.serverError().build();
     }
 
+    public Response showWinner (String idAuction) {
+        BaseResponse baseResponse = new BaseResponse();
+        try {
+            Optional<User> optionalUser = auctionService.showWinnerAuction(idAuction);
+            UserResponse response = new UserResponse();
+            if (optionalUser.isPresent()) {
+                response.setUser(optionalUser.get());
+            }
+            return Response.ok(response).build();
+
+        } catch (AuctionException ex) {
+            switch (ex.getErrorType()) {
+                case AUCTION_NOT_FOUND:
+                    baseResponse.getErrors().add(new ErrorCode(ErrorType.AUCTION_NOT_FOUND));
+                    return Response.status(Response.Status.NOT_FOUND).entity(baseResponse).build();
+                case AUCTION_NOT_TERMINATED:
+                    baseResponse.getErrors().add(new ErrorCode(ErrorType.AUCTION_NOT_TERMINATED));
+                    return Response.status(Response.Status.FORBIDDEN).entity(baseResponse).build();
+            }
+        }
+        return Response.serverError().build();
+    }
+
 
 }

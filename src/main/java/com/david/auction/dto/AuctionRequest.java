@@ -8,11 +8,17 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 public class AuctionRequest {
 
     @JsonProperty("name")
+    @NotEmpty
+    @Size(min = 3, max=255)
     private  String name;
 
     @JsonProperty("description")
@@ -22,6 +28,8 @@ public class AuctionRequest {
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
+    @NotNull
+    //@Pattern(regexp="\\d{4}-(1[012]|0[1-9])-(3[01]|[12]\\d|0[0-9]) (2[0123]|1[0-9]|0[0-9])")
     private  LocalDateTime startingTime;
 
     @JsonProperty("endingTime")
@@ -31,6 +39,7 @@ public class AuctionRequest {
     private  LocalDateTime endingTime;
 
     @JsonProperty("price")
+    @NotEmpty
     private  float price;
 
     public AuctionRequest () {
