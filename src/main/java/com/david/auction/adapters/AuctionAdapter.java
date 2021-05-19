@@ -9,6 +9,7 @@ import com.david.auction.model.AuctionStatus;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class AuctionAdapter {
@@ -35,7 +36,8 @@ public class AuctionAdapter {
     }
 
     public static Auction requestToModel (AuctionRequest auctionRequest) {
-        Auction auction = new Auction(auctionRequest.getName(),auctionRequest.getStartingTime(),auctionRequest.getEndingTime(),auctionRequest.getPrice());
+        String id = UUID.randomUUID().toString();
+        Auction auction = new Auction(id,auctionRequest.getName(),auctionRequest.getStartingTime(),auctionRequest.getEndingTime(),auctionRequest.getPrice());
         auction.setDescription(auctionRequest.getDescription());
         return auction;
     }

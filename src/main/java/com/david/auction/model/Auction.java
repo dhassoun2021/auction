@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Auction {
 
-    private String id;
+    private  String id;
 
     private final String name;
 
@@ -56,10 +56,6 @@ public class Auction {
         this.auctionHouse = auctionHouse;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public boolean isDeleted() {
         return deleted;
     }
@@ -86,6 +82,10 @@ public class Auction {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public AuctionStatus computeStatus() {

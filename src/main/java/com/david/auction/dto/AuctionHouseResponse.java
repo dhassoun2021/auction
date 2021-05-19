@@ -1,6 +1,6 @@
 package com.david.auction.dto;
 
-public class AuctionHouseResponse extends BaseResponse{
+public class AuctionHouseResponse extends ErrorResponse {
 
     private String id;
     private String name;
