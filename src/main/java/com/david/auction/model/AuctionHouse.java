@@ -7,7 +7,7 @@ public class AuctionHouse {
 
     private String id;
 
-    private String name;
+    private final String name;
 
 
     public AuctionHouse(String name) {

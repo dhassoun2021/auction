@@ -6,10 +6,10 @@ import java.util.Objects;
 public class Bid {
 
     private String id;
-    private float price;
-    private Auction auction;
-    private User user;
-    private LocalDateTime createdTime;
+    private final float price;
+    private final Auction auction;
+    private final User user;
+    private final LocalDateTime createdTime;
 
     public Bid(float price, Auction auction, User user) {
         this.price = price;

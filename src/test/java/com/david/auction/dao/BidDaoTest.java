@@ -13,13 +13,6 @@ public class BidDaoTest {
 
     private static IBidDao bidDao = new BidDao();
 
-    public static Bid buildBid (LocalDateTime startingTime, LocalDateTime endingTime, float price, float newPrice, String idAuction) {
-        User user = new User("1","DUPONT");
-        Auction auction = new Auction("auction",startingTime,endingTime, price);
-        auction.setId(idAuction);
-        Bid bid = new Bid(newPrice,auction,user) ;
-        return bid;
-    }
 
     public static Bid buildBid (Auction auction, float newPrice, User user) {
         Bid bid = new Bid(newPrice,auction,user) ;

@@ -1,16 +1,17 @@
 package com.david.auction.model;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Auction {
 
     private String id;
 
-    private String name;
+    private final String name;
 
     private String description;
 
-    private LocalDateTime startingTime;
+    private  LocalDateTime startingTime;
 
     private LocalDateTime endingTime;
 
@@ -103,5 +104,16 @@ public class Auction {
         return status;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Auction auction = (Auction) o;
+        return deleted == auction.deleted && Float.compare(auction.price, price) == 0 && Objects.equals(id, auction.id) && Objects.equals(name, auction.name) && Objects.equals(description, auction.description) && Objects.equals(startingTime, auction.startingTime) && Objects.equals(endingTime, auction.endingTime) && Objects.equals(auctionHouse, auction.auctionHouse);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, description, startingTime, endingTime, auctionHouse, deleted, price);
+    }
 }

@@ -10,14 +10,12 @@ import com.david.auction.exceptions.ErrorType;
 import com.david.auction.model.AuctionHouse;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
+
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.internal.configuration.ClassPathLoader;
 
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
